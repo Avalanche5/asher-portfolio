@@ -1,0 +1,33 @@
+$color-blue: #5643fa;
+$color-blue--light: #2998ff;
+$color-orange: #df6925;
+$color-lightgrey: rgb(235, 233, 233);
+
+// colors from apple site
+$apple-black: rgb(51, 51, 51);
+$apple-grey: rgb(193, 193, 193);
+$apple-grey--dark: rgb(134, 134, 134);
+$apple-grey--light: $color-lightgrey;
+
+$color-secondary: $color-blue;
+$color-secondary--light: $color-blue--light;
+$color-tertiary: $color-orange;
+
+$burger-icon-size: 2.5rem;
+$burger-button-appears: 750px; //breakpoint for main navi change
+$nav-link-size: 0.9rem;
+
+$section-banner-height: 5rem;
+$section-text-size: 1rem;
+$section-text-size--sm: 0.9rem;
+
+$school-logo-height: 6rem;
+$contact-icon-width: 3rem;
+
+$content-v-margin: 2rem;
+$title-v-margin: 1rem;
+
+$box-shadow: 0 0.5rem 2rem 0.5rem rgba(black, 0.15);
+$box-shadow--light: 0 0.25rem 0.5rem rgba(black, 0.15);
+
+$standard-line-height: 1.5rem;

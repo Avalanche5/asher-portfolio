@@ -1,0 +1,348 @@
+@import 'navi';
+@import 'variables';
+@import 'typography';
+
+@import 'card';
+
+:root {
+  --content-width: 85%;
+}
+
+@media (min-width: 800px) {
+  :root {
+    --content-width: 75%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 62.5%;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+// ---- global styles ---------------------
+.styled-hr {
+  border: 0;
+  height: 1px;
+  width: 70%;
+  margin: 0 auto 2rem;
+  &--black {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    @media screen and (max-width: 905px) {
+      height: 0;
+      border: none;
+      margin-bottom: 3rem;
+    }
+  }
+  &--white {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 250ms ease-in;
+}
+
+.fade-in.appear {
+  opacity: 1;
+}
+
+h1,
+button,
+h2 {
+  margin: 0.5rem;
+}
+h1 {
+  color: whitesmoke;
+}
+
+h2 {
+  font-size: 1.2rem;
+  color: #aaa;
+}
+
+@media only screen and (min-width: 1200px) {
+  h2 {
+    font-size: 2.5rem;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  h2 {
+    font-size: 1.6rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 799px) {
+  h2 {
+    font-size: 1.4rem;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  h2 {
+    font-size: 1rem;
+  }
+  h1 {
+    font-size: 1.2rem;
+  }
+}
+
+/* ------ main intro section ------ */
+main {
+  height: 100vh;
+  width: 100%;
+  background: radial-gradient(rgb(100, 100, 100), black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 3rem;
+  @media screen and (max-width: 800px) {
+    padding: 0 2rem;
+  }
+
+  .main_title {
+    &--name {
+    }
+    &--welcome {
+    }
+    &--btn {
+      border: 1.5px solid whitesmoke;
+      padding: 0.5rem;
+      color: whitesmoke;
+      border-radius: 5%;
+      background: none;
+    }
+  }
+}
+
+.main_title--name-type > .txt {
+  border-right: 0.2rem solid #777;
+}
+
+.section {
+  font-size: $section-text-size;
+  color: $apple-black;
+  margin-top: 4rem;
+
+  & > section {
+    //does not apply to section banners
+    width: 90%;
+    margin: 1rem auto 2rem auto;
+  }
+
+  &.about {
+    margin-top: 0px;
+  }
+
+  &_banner {
+    background-color: $apple-grey--light;
+    width: 100%;
+    height: $section-banner-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    &_title {
+      color: inherit;
+    }
+  }
+}
+
+.about {
+  &_profile {
+    display: flex;
+    align-items: center;
+    max-width: 1000px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    & > * {
+      padding: 1rem;
+    }
+    &_pic {
+      max-width: 200px;
+      border-radius: 50%;
+    }
+    &_about {
+      font-size: inherit;
+      line-height: $standard-line-height;
+      flex: 3 1 400px;
+    }
+  }
+
+  &_achievements {
+    margin: 10px auto;
+    width: 90%;
+
+    &_heading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+
+      &_title {
+        margin-right: 10px;
+
+      }
+      &_trophy {
+        color: #d4af37;
+        display: block;
+
+      }
+    }
+    &_table {
+      width: 100%;
+      border-collapse: collapse; /* Remove spaces between table cells */
+      
+
+      td {
+        padding: 10px;
+        border: 1px solid #ddd; // Optional: Add a border for better visual separation
+
+        &:nth-child(2) {
+          background-color: #f0f8ff; // Light tint for the second column
+        }
+      }
+    }
+  }
+}
+
+// ------------- projects section ----------------
+.projects {
+  &_project {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    line-height: $standard-line-height;
+    margin-bottom: 2rem;
+
+    @media screen and (max-width: 450px) {
+      margin: 2rem 0 !important;
+      width: 100% !important;
+    }
+
+    &_preview {
+      flex-basis: 400px;
+      &_img {
+        width: 100%;
+      }
+      &_card {
+        display: none;
+        @media screen and (max-width: 450px) {
+          display: block;
+        }
+        &_title {
+          color: $color-tertiary;
+          text-align: center;
+          margin-bottom: 0.5rem;
+        }
+        &_icon-list {
+          list-style: none;
+          padding: 0 1rem;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          &_item {
+            font-size: 0.9rem;
+            padding: 0.25rem 0.5rem;
+            margin: 0.25rem 0.5rem;
+            color: $apple-black;
+            border-radius: 0.25rem;
+            background-color: $apple-grey--light;
+          }
+        }
+      }
+      &_links {
+        display: flex;
+        justify-content: center;
+        a {
+          display: block;
+          padding: 1rem;
+          color: $apple-black;
+          transition: color 0.25s ease;
+          &:hover {
+            color: $apple-grey;
+          }
+        }
+      }
+    }
+  }
+}
+
+.education {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  &_school {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    width: var(--content-width);
+    margin: $content-v-margin auto;
+
+    &_header {
+      &--school-logo {
+        height: $school-logo-height;
+      }
+      &--pgm-name {
+        font-style: italic;
+      }
+      &--school-name {
+      }
+    }
+    &_relavent-courses-title {
+      text-align: left;
+    }
+  }
+}
+.contact {
+  height: 30vh;
+  background-color: $apple-grey--light;
+  color: $apple-black;
+  &_wrapper {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+  }
+  &_icon {
+    padding: 2rem;
+    &_link {
+      color: inherit;
+      transition: color 0.25s ease;
+      &:hover {
+        color: $color-secondary--light;
+      }
+    }
+  }
+  &_copyright {
+    font-size: 1rem;
+    font-style: italic;
+    color: inherit;
+    text-align: center;
+  }
+}

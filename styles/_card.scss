@@ -1,0 +1,103 @@
+.card {
+  // flex-basis: 400px;
+  flex-basis: 50%;
+  min-width: 400px;
+  max-width: 600px;
+  perspective: 40rem; //higher value here leads to more realistic rotation
+
+  -moz-perspective: 50rem;
+  position: relative;
+  height: 300px; // MUST have same height as _side so as to not collapse
+  @media screen and (max-width: 450px) {
+    display: none;
+    max-width: 100%;
+    flex-grow: 1;
+  }
+
+  &_side {
+    // styles mutual to both sides
+    overflow: hidden;
+    height: 300px;
+    color: $apple-grey;
+    transition: all 0.5s ease;
+    position: absolute;
+    box-shadow: $box-shadow;
+    border-radius: 0.5rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    cursor: pointer;
+
+    @media screen and (max-width: 905px) {
+      box-shadow: $box-shadow--light;
+    }
+
+    &_flip {
+      // a flip icon
+      color: white;
+      position: absolute;
+      top: 1.5rem;
+      left: 3rem;
+    }
+
+    &--front {
+      background-color: white;
+      position: relative;
+      // -------  media queries for under 450px are useless as card is disabled in that range
+      // @media screen and (max-width: 450px) {
+      //   background-color: $color-tertiary;
+      // }
+      &_picture {
+        height: 5rem;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        background-image: linear-gradient(
+          to right bottom,
+          $color-secondary,
+          $color-secondary--light
+        );
+      }
+      &_title {
+        position: absolute;
+        top: 1.5rem;
+        right: 2rem;
+        margin: 1rem;
+        color: white;
+      }
+      &_desc {
+        color: $apple-black;
+        padding: 1.5rem;
+        // @media screen and (max-width: 450px) {
+        //   padding: 1rem 2.5rem;
+        //   color: white;
+        // }
+      }
+    }
+    &--back {
+      background-color: $apple-black;
+      transform: rotateY(180deg);
+      color: white;
+      padding: 1rem 2rem;
+      &_title {
+        margin: 1rem;
+        text-align: center;
+      }
+      &_techlist {
+        list-style: circle;
+        color: $apple-grey;
+        padding: 1rem;
+        &_item {
+        }
+      }
+    }
+  }
+}
+.flipped .card_side--front {
+  transform: rotateY(-180deg);
+}
+
+.flipped .card_side--back {
+  transform: rotateY(0);
+}
